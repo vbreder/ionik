@@ -3,8 +3,12 @@ Ionik
 
 Ionik Block Diagram
 -------------
+<div style="text-align:center; max-width: 500px; margin: auto;">
+
 ![Ionik Block Diagram](./docs/ionik-block-diagram.png)
 **Figure 1** – *Block diagram of the Arduino-based ionospheric monitor.*
+
+</div>
 
 The main components of the developed module are outlined in the block diagram show in Figure 1. The whole system can be powered by either a 9V battery or single 5V power supply connected through the USB port of the Arduino board (which then powers the Adafruit GPS Receiver). A bidirectional serial RS-232 communication link is stablished between the GPS module and the Arduino board through its pins 0 and 1, which feature the dedicated on-board USART chip. Finally, the SD Card shield is mounted on top of the Arduino board, allowing it to write to the SD card through the SPI protocol and internal libraries available in the Arduino Standard Library.
 
@@ -12,8 +16,13 @@ The code loaded on the Arduino can be found in the present GitHub repository. Th
 
 High Level Code Flow
 --------------------
+
+<div style="text-align:center; max-width: 300px; margin: auto;">
+
 ![High Level Code Flow](./docs/high-level-code-flow.png)
 **Figure 2** – *High-level flow diagram of the code running in the Arduino.*
+
+</div>
 
 The code is comprised of two processes. The main process is shown on the left side of Figure 2, composed of the usual `setup()` and `loop()` functions, which are called by the Arduino bootloader once the board is reset. The `setup()` code is only ran once and is responsible for initializing all the registers and memory states necessary for the future board operation. Then, once the initialization is done, the `loop()` code is repeatedly run as often as the microcontroller is able to process it. The `loop()` code is responsible for storing the NMEA GPS frames in the SD Card as soon as they are received in an internal buffer, as well as reading the button state and updating the LED states.
 
@@ -25,7 +34,12 @@ losses.
 
 `loop()` and `read()` Code Flow
 --------------------
+
+<div style="text-align:center; max-width: 700px; margin: auto;">
+
 ![Loop and Read Code Flow](./docs/loop-and-read-code-flow.png)
+
+</div>
 
 As mentioned before, the `loop()` code is executed as often as it able to be ran by the microcontroller. The left panel of Figure 3 shows its detailed code flow diagram. This process is responsible for controlling the main behavior of the board, such as controlling the LEDs, writing received NMEA frames to the SD Card and reading the button state.
 
