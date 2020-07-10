@@ -1,6 +1,6 @@
 /*
  * IONIK IONOSPHERIC MONITOR v1.0
- * 2016-11-14 - github.com/victorbreder
+ * 2016-11-14 - Victor Breder - github.com/vbreder
  */
 
 #include <string.h>
